@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <title>mymcpsite — MIAW Dummy Website</title>
+</head>
+<body>
+  <h1>mymcpsite — MIAW Dummy Website</h1>
+  <p>
+    A genuinely separate, external site (GitHub Pages) hosting the
+    Messaging for In-App and Web (MIAW) embedded chat widget — practicing
+    the real deployment scenario, as opposed to hosting it on the same
+    domain as the MCP server itself.
+  </p>
+  <p>The chat widget should appear as a launcher button, usually bottom-right.</p>
+
+  <script type='text/javascript'>
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+        embeddedservice_bootstrap.init(
+          '00DgK00000662Of',
+          'MCP',
+          'https://orgfarm-70c826bc74-dev-ed.develop.my.site.com/ESWMCP1788218157856',
+          {
+            scrt2URL: 'https://orgfarm-70c826bc74-dev-ed.develop.my.salesforce-scrt.com'
+          }
+        );
+      } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+      }
+    };
+  </script>
+  <script type='text/javascript' src='https://orgfarm-70c826bc74-dev-ed.develop.my.site.com/ESWMCP1788218157856/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</body>
+</html>
