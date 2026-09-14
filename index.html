@@ -32,6 +32,15 @@
         console.error('Error loading Embedded Messaging: ', err);
       }
     };
+
+    // Fires once the widget is ready but before the conversation starts —
+    // this is where a real site would inject values it already knows
+    // about the visitor (e.g. from a logged-in session).
+    window.addEventListener('onEmbeddedMessagingReady', () => {
+      embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+        CustomerEmail: 'test@test.com'
+      });
+    });
   </script>
   <script type='text/javascript' src='https://orgfarm-70c826bc74-dev-ed.develop.my.site.com/ESWMCP1788218157856/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
